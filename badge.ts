@@ -142,6 +142,7 @@ namespace badge {
     //% blockId=badgestart block="badge start"
     export function start() {
         power.setDeepSleepTimeout(-1); // disable sleep        
+        new music.Melody("d#5:2 d#4:1 a#4:1.5 g#4:2 d#4:2 d#5:2 a#4:4").play(80);
         storyboard.start("home");
     }
 }
