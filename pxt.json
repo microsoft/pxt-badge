@@ -17,7 +17,8 @@
         "badge.ts",
         "home.ts",
         "social.ts",
-        "schedule.ts"
+        "schedule.ts",
+        "notification.ts"
     ],
     "testFiles": [
         "test.ts"

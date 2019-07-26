@@ -105,7 +105,6 @@ namespace home {
     const iconSize = 16;
     const mu = 5;
     const mu2 = mu * 2;
-    const strip = light.onboardStrip();
 
     // name sprite
     const sprite_padding = mu * 2;
@@ -370,8 +369,11 @@ namespace home {
         stepSprite.image.print(getStepString(steps), 0, 0, 1, stepFont);
 
         effects.confetti.startScreenEffect(500)
-        strip.setAll(0xff00ff);
-        strip.startBrightnessTransition(24, 0, 400, 1, false, new light.EasingBrightnessTransition(easing.outQuad, easing.inOutQuad));
+        const strip = badge.lightStrip;
+        if (strip) {
+            strip.setAll(0xff00ff);
+            strip.startBrightnessTransition(24, 0, 400, 1, false, new light.EasingBrightnessTransition(easing.outQuad, easing.inOutQuad));
+        }
         stepEffect(500, sprite, name, ts);
 
         /*
@@ -452,7 +454,7 @@ namespace home {
             switch (msgType) {
                 case "echo": {
                     badge.notificationText = message.displayedValue;
-                    badge.transition("notification");
+                    storyboard.push("notification");
                     break;
                 }
                 case "github": {

@@ -13,6 +13,7 @@ namespace badge {
     export let linkedin: string;
     export let qrimg: Image;
     export let lightStrip: light.LightStrip;
+    export let notificationText: string;
 
     //% blockId=logoImageEditor block="%img"
     //% shim=TD_ID

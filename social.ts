@@ -19,10 +19,10 @@ namespace badge {
             storyboard.replace("home");
         })
 
-        const strip = light.onboardStrip();
         scene.setBackgroundImage(image.create(screen.width, screen.height));
         scene.backgroundImage().printCenter("Connect on LinkedIn", 4, 1, image.font5);
-        if (badge.lightStrip) {
+        const strip = badge.lightStrip;
+        if (strip) {
             strip.setAll(0x00ff00);
             strip.startBrightnessTransition(24, 0, 400, 1, false, new light.EasingBrightnessTransition(easing.outQuad, easing.inOutQuad));
         }
