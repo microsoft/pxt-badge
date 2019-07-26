@@ -1,0 +1,19 @@
+{
+    "name": "badge",
+    "version": "0.0.0",
+    "description": "A framework to create electronic badges in MakeCode Arcade",
+    "dependencies": {
+        "device": "*",
+        "palette": "*",
+        "storyboard": "*"
+    },
+    "files": [
+        "README.md",
+        "main.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "license": "MIT"
+}
