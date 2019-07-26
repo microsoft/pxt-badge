@@ -398,6 +398,7 @@ namespace home {
     }
 
 
+    let icons: HighlightIcon[] = [];
     function main() {
         const bkg = scene.backgroundImage();
         const name = badge.name || "???";
@@ -405,7 +406,7 @@ namespace home {
         const logoImage = badge.logoImage;
 
         let selected: number = null;
-        let icons: HighlightIcon[] = [];
+        icons = [];
 
         palette.setColors(p);
 
