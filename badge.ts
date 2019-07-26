@@ -2,6 +2,7 @@
  * A conference badge
  */
 //% weight=90 icon="\uf2bb" color="#606000"
+//% groups='["User", "Conference"]'
 namespace badge {
     export const font = image.font8;
     export const font16 = image.doubledFont(font);
@@ -10,7 +11,7 @@ namespace badge {
     export let name: string;
     export let logoImage: Image;
     export let company: string;
-    export let linkedin: string;
+    export let socialUrl: string;
     export let qrimg: Image;
     export let lightStrip: light.LightStrip;
     export let notificationText: string;
@@ -31,7 +32,7 @@ namespace badge {
      * Sets the name of the attendee
      * @param name 
      */
-    //% blockId=badgesetname badge set name to $name
+    //% blockId=badgesetname block="badge set name to $name"
     //% group="User"
     export function setName(name: string) {
         badge.name = name;
@@ -48,20 +49,22 @@ namespace badge {
     }
 
     /**
-     * Sets the linked in profile
-     * @param linkedin 
+     * Sets the social profile URL (LinkedIn, twitter, github)
+     * @param url URL to social profile 
      */
-    //% blockId=badgesetlinkedin block="badge set linked in to $linkedin"
-    export function setLinkedIn(linkedin: string) {
+    //% blockId=badgesetsocial block="badge set social to $url"
+    //% group="User"
+    export function setSocial(url: string) {
         // normalize
-        if (linkedin) {
-            ["https://linked.in/in/", "https://www.linkedin.com/in/", "https://linkedin.com/in/"]
-                .filter(prefix => linkedin.indexOf(prefix) == 0)
-                .forEach(prefix => linkedin = linkedin.slice(prefix.length));
+        if (url) {
+            // minify linkedin
+            ["https://www.linkedin.com/in/", "https://linkedin.com/in/"]
+                .filter(prefix => url.indexOf(prefix) == 0)
+                .forEach(prefix => url = "https://linked.in/in/" + url.slice(prefix.length));
         }
         // update qrcode
-        if (linkedin != badge.linkedin) {
-            badge.linkedin = linkedin;
+        if (url != badge.socialUrl) {
+            badge.socialUrl = socialUrl;
             badge.qrimg = undefined;
         }
     }

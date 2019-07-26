@@ -5,7 +5,7 @@ badge.setLogo("NA", 3);
 badge.start();
 
 // user config
-badge.setLinkedIn("https://www.linkedin.com/in/xyz/")
+badge.setSocial("https://www.linkedin.com/in/xyz/")
 
 badge.setProgram({
     days: [

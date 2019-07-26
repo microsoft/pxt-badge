@@ -491,8 +491,8 @@ namespace home {
         //const rpsIcon = sprites.create(im_sword);
         //icons.push(new HighlightIcon(rpsIcon, 4, () => storyboard.replace("rps")));
 
-        // linkedin
-        if (badge.linkedin) {
+        // social URL
+        if (badge.socialUrl) {
             const liIcon = sprites.create(im_li);
             icons.push(new HighlightIcon(liIcon, 4, social));
         }

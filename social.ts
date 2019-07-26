@@ -7,7 +7,7 @@ namespace badge {
         else {
             const qr = sprites.create(sprites.duck.duck1)
             control.runInBackground(() => {
-                badge.qrimg = qrcode.encodeString("https://linked.in/in/" + badge.linkedin);
+                badge.qrimg = qrcode.encodeString(badge.socialUrl);
                 qr.setImage(badge.qrimg);
                 qr.x = screen.width >> 1;
                 qr.y = screen.height >> 1;
@@ -20,7 +20,7 @@ namespace badge {
         })
 
         scene.setBackgroundImage(image.create(screen.width, screen.height));
-        scene.backgroundImage().printCenter("Connect on LinkedIn", 4, 1, image.font5);
+        scene.backgroundImage().printCenter("Connect online", 4, 1, image.font5);
         const strip = badge.lightStrip;
         if (strip) {
             strip.setAll(0x00ff00);
