@@ -63,8 +63,8 @@ namespace badge {
                 .forEach(prefix => url = "https://linked.in/in/" + url.slice(prefix.length));
         }
         // update qrcode
-        if (url != badge.socialUrl) {
-            badge.socialUrl = socialUrl;
+        if (url !== badge.socialUrl) {
+            badge.socialUrl = url;
             badge.qrimg = undefined;
         }
     }
