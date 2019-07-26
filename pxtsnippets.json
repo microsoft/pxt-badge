@@ -1,9 +1,9 @@
 [{
     "name": "Badge Builder",
     "namespace": "badge",
-    "label": "Build a badge...",
+    "label": "Configure your badge...",
     "outputType": "blocks",
-    "initialOutput": "badge.setLogo(\"$yourName\")",
+    "initialOutput": "badge.setName(\"$yourName\")",
     "questions": [
         {
             "title": "What is your name?",
@@ -38,8 +38,8 @@
                     "type": "text"
                 }
             ],
-            "output": "badge.setLinkedIn(\"$yourLinkedIn\")\nbadge.start()",
-            "hint": "This is the profile that will be associated with your badge. It can be Twitter, LinkedIn, or Instagram."
+            "output": "badge.setSocial(\"$yourLinkedIn\")\nbadge.start()",
+            "hint": "This is the profile that will be associated with your badge. It can be Twitter, LinkedIn, or Instagram..."
         }
     ]
 }]
