@@ -397,8 +397,6 @@ namespace home {
         return im;
     }
 
-
-    let icons: HighlightIcon[] = [];
     function main() {
         const bkg = scene.backgroundImage();
         const name = badge.name || "???";
@@ -406,7 +404,7 @@ namespace home {
         const logoImage = badge.logoImage;
 
         let selected: number = null;
-        icons = [];
+        const icons: HighlightIcon[] = [];
 
         palette.setColors(p);
 
@@ -544,13 +542,14 @@ namespace home {
         }
 
         /* icon selection code */
-        controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-            selected = highlightIcon(selected, 1, selector, icons);
-        })
-
-        controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-            selected = highlightIcon(selected, -1, selector, icons);
-        })
+        if (icons.length) {
+            controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+                selected = highlightIcon(selected, 1, selector, icons);
+            })
+            controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+                selected = highlightIcon(selected, -1, selector, icons);
+            })
+        }
 
         // step counter
         controller.onGesture(ControllerGesture.TwoG, function () {

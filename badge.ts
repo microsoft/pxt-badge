@@ -143,9 +143,28 @@ namespace badge {
      * Starts the badge engine
      */
     //% blockId=badgestart block="badge start"
+    //% group="User"
     export function start() {
         power.setDeepSleepTimeout(-1); // disable sleep        
-        new music.Melody("d#5:2 d#4:1 a#4:1.5 g#4:2 d#4:2 d#5:2 a#4:4").play(80);
+        if (badge.logoImage)
+            new storyboard.BootSequence(logoBoot, 0).register();
         storyboard.start("home");
+    }
+
+    function logoBoot(done: () => void) {
+        let imageSprite = sprites.create(badge.logoImage);
+        let m = 40;
+        let w = screen.width - 2 * m;
+        let c = 2;
+        let y = screen.height / 2 - c;
+        imageSprite.bottom = y - 2 * c;
+        let x = 0;
+        game.onPaint(function () {
+            screen.drawRect(m, y, w, 2 * c, 1)
+            screen.fillRect(m, y + 1, x, 2 * c - 2, 3);
+
+            x++;
+            if (x == w) done();
+        })
     }
 }
