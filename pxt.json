@@ -16,7 +16,8 @@
         "README.md",
         "badge.ts",
         "home.ts",
-        "social.ts"
+        "social.ts",
+        "schedule.ts"
     ],
     "testFiles": [
         "test.ts"
