@@ -18,7 +18,8 @@
         "home.ts",
         "social.ts",
         "schedule.ts",
-        "notification.ts"
+        "notification.ts",
+        "pxtsnippets.json"
     ],
     "testFiles": [
         "test.ts"

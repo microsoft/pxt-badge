@@ -1,0 +1,45 @@
+[{
+    "name": "Badge Builder",
+    "namespace": "badge",
+    "label": "Build a badge...",
+    "outputType": "blocks",
+    "initialOutput": "badge.setLogo(\"$yourName\")",
+    "questions": [
+        {
+            "title": "What is your name?",
+            "inputs": [{
+                "answerToken": "yourName",
+                "defaultAnswer": "",
+                "type": "text"
+            }],
+            "hint": "Write your name as you would like it to appear on your badge.",
+            "goto": {
+                "question": 1
+            }
+        },
+        {
+            "title": "What company do you work for?",
+            "inputs": [{
+                "answerToken": "yourCompany",
+                "defaultAnswer": "",
+                "type": "text"
+            }],
+            "output": "badge.setCompany(\"$yourCompany\")",
+            "goto": {
+                "question": 2
+            }
+        },
+        {
+            "title": "What is the url of your preferred profile?",
+            "inputs": [
+                {
+                    "answerToken": "yourLinkedIn",
+                    "defaultAnswer": "",
+                    "type": "text"
+                }
+            ],
+            "output": "badge.setLinkedIn(\"$yourLinkedIn\")\nbadge.start()",
+            "hint": "This is the profile that will be associated with your badge. It can be Twitter, LinkedIn, or Instagram."
+        }
+    ]
+}]
