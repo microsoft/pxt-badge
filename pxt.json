@@ -5,11 +5,18 @@
     "dependencies": {
         "device": "*",
         "palette": "*",
-        "storyboard": "*"
+        "storyboard": "*",
+        "controller": "*",
+        "light": "*",
+        "color": "*",
+        "power": "*",
+        "qrcode": "github:pelikhan/pxt-qrcode#v0.0.4"
     },
     "files": [
         "README.md",
-        "main.ts"
+        "badge.ts",
+        "home.ts",
+        "social.ts"
     ],
     "testFiles": [
         "test.ts"
