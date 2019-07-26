@@ -10,7 +10,8 @@
         "light": "*",
         "color": "*",
         "power": "*",
-        "qrcode": "github:pelikhan/pxt-qrcode#v0.0.4"
+        "qrcode": "github:pelikhan/pxt-qrcode#v0.0.4",
+        "arcade-dom": "github:riknoll/pxt-arcade-dom#v0.0.4"
     },
     "files": [
         "README.md",
