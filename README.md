@@ -1,8 +1,36 @@
-# badge
+# MakeCode Badge
 
 A framework to create electronic badges in MakeCode Arcade
 
-## TODO
+## Configuration
+
+Use the blocks in the ``badge`` namespace to configure your information in the badge.
+
+```blocks
+badge.setName("Cortana")
+badge.setCompany("MakeCode")
+badge.setSocial("TWITTER/LINKEDIN/GITHUB")
+badge.start()
+```
+
+## Conference configuration
+
+If you are planning to use this badge for a conference, we recommend that you
+create a new project and add this extension as a dependency. Once the badge is conference,
+you can share your extension with the conference goers. 
+
+You can configure the name of the conference or draw a logo image.
+
+```blocks
+badge.setLogo("MAMAMA", 2)
+```
+
+Additional boot sequence can be registered. For example, 
+this project https://github.com/microsoft/pxt-microsoft-boot-sequence
+generates the Microsoft boot sequence.
+
+You can specify a full conference program (in JavaScript only) as well.
+
 
 ## Supported targets
 
