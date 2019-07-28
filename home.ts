@@ -14,7 +14,6 @@ namespace home {
         }
     }
 
-    /*
     class WifiIcon {
         connected: boolean;
         sprite: Sprite;
@@ -28,7 +27,7 @@ namespace home {
 
         constructor(sprite: Sprite, bgColor: number, imColor: number) {
             this.sprite = sprite;
-            this.connected = iot.isConnected();
+            this.connected = badge.cloud.isConnected();
             this.bgColor = bgColor;
             this.imColor = imColor;
 
@@ -71,8 +70,8 @@ namespace home {
         }
 
         connectionChanged() {
-            if (iot.isConnected() != this.connected) {
-                this.connected = iot.isConnected();
+            if (badge.cloud.isConnected() != this.connected) {
+                this.connected = badge.cloud.isConnected();
                 this.drawConnectionState();
             }
         }
@@ -82,17 +81,14 @@ namespace home {
         }
 
         sendMessage(msg: any) {
-            iot.postMessage(msg);
+            badge.cloud.postMessage(msg);
             this.drawMessageState(true);
         }
 
         registerCloudHandlers() {
-            iot.onConnectionChanged(() => { this.connectionChanged() });
-            // iot.onMessageReceived(() => { this.messageReceived() });
+            badge.cloud.onConnectionChanged(() => { this.connectionChanged() });
         }
     }
-    */
-
 
     /*
      background setup
@@ -501,24 +497,6 @@ namespace home {
             }
         })
 
-        /*
-        iot.onMessageReceived(function (message: any) {
-            const msgType = message["type"] as string;
-            switch (msgType) {
-                case "echo": {
-                    badge.notificationText = message.displayedValue;
-                    storyboard.push("notification");
-                    break;
-                }
-                case "github": {
-                    const stars = message["stars"] as number;
-                    info.setScore(stars);
-                    break;
-                }
-            }
-        })
-        */
-
         const ts = new texteffects.TextSprite(name, nameFont, 0, texteffects.shake);
 
         /* static text (company, build logo) */
@@ -585,12 +563,28 @@ namespace home {
         /* top icons (decorative at the moment) */
         let top_icons: Sprite[] = []
 
-        /*
-        const wifiSprite = sprites.create(image.create(iconSize, iconSize));
-        const wifiIcon = new WifiIcon(wifiSprite, color, 7);
-        wifiIcon.registerCloudHandlers();
-        top_icons.push(wifiIcon.sprite);
-        */
+        if (badge.cloud) {
+            const wifiSprite = sprites.create(image.create(iconSize, iconSize));
+            const wifiIcon = new WifiIcon(wifiSprite, bkgColor, 7);
+            wifiIcon.registerCloudHandlers();
+            top_icons.push(wifiIcon.sprite);
+
+            badge.cloud.onMessageReceived(function (message: badge.Message) {
+                const msgType = message.type;
+                switch (msgType) {
+                    case "notification": {
+                        badge.notificationText = (<any>message).displayedValue as string;
+                        storyboard.push("notification");
+                        break;
+                    }
+                    case "github": {
+                        const stars = (<any>message)["stars"] as number;
+                        info.setScore(stars);
+                        break;
+                    }
+                }
+            })
+        }
 
         const top_2 = sprites.create(image.create(iconSize, iconSize));
         top_2.image.fill(4)

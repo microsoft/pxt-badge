@@ -4,6 +4,44 @@
 //% weight=90 icon="\uf2bb" color="#606000"
 //% groups='["User", "Conference"]'
 namespace badge {
+    export interface Session {
+        name: string;
+        presenter: string;
+        info: string;
+        startTime: number;
+        endTime: number;
+        location: string;
+    }
+
+    export interface Day {
+        title: string;
+        weekday: string;
+        monthday: number;
+    }
+
+    export interface FeedbackQuestion {
+        text: string;
+        options: string[];
+    }
+
+    export interface Program {
+        days: Day[];
+        sessions: Session[];
+        questions: FeedbackQuestion[];
+    }
+
+    export interface Message {
+        type: string;
+    }
+
+    export class Cloud {
+        constructor() { }
+        isConnected(): boolean { return false; }
+        postMessage(msg: any): void { }
+        onConnectionChanged(handler: () => void) { }
+        onMessageReceived(handler: (msg: Message) => void) { }
+    }
+
     export const font = image.font8;
     export const font16 = image.doubledFont(font);
     export const font32 = image.doubledFont(font16);
@@ -15,6 +53,8 @@ namespace badge {
     export let qrimg: Image;
     export let lightStrip: light.LightStrip;
     export let notificationText: string;
+    export let program: Program;
+    export let cloud: Cloud;
 
     //% blockId=logoImageEditor block="%img"
     //% shim=TD_ID
@@ -102,34 +142,6 @@ namespace badge {
         setLogoImage(i);
     }
 
-    export interface Session {
-        name: string;
-        presenter: string;
-        info: string;
-        startTime: number;
-        endTime: number;
-        location: string;
-    }
-
-    export interface Day {
-        title: string;
-        weekday: string;
-        monthday: number;
-    }
-
-    export interface FeedbackQuestion {
-        text: string;
-        options: string[];
-    }
-
-    export interface Program {
-        days: Day[];
-        sessions: Session[];
-        questions: FeedbackQuestion[];
-    }
-
-    export let program: Program;
-
     /**
      * Sets the conference program if any
      * @param program 
@@ -166,5 +178,12 @@ namespace badge {
             x++;
             if (x == w) done();
         })
+    }
+
+    /**
+     * Sets the cloud connectivity implementation.
+     */
+    export function setCloud(cloud: Cloud) {
+        badge.cloud = cloud;
     }
 }
