@@ -51,7 +51,6 @@ namespace badge {
     export let company: string;
     export let socialUrl: string;
     export let qrimg: Image;
-    export let lightStrip: light.LightStrip;
     export let notificationText: string;
     export let program: Program;
     export let cloud: Cloud;
@@ -107,17 +106,6 @@ namespace badge {
             badge.socialUrl = url;
             badge.qrimg = undefined;
         }
-    }
-
-
-    /**
-     * Sets the light strip used by the badge
-     * @param strip 
-     */
-    //% blockId=badgesetlightstrip block="badge set light strip $strip"
-    //% group="Effects"
-    export function setLightStrip(strip: light.LightStrip) {
-        lightStrip = strip;
     }
 
     /**

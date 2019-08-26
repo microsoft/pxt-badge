@@ -7,7 +7,6 @@
         "palette": "*",
         "storyboard": "*",
         "controller": "*",
-        "light": "*",
         "color": "*",
         "power": "*",
         "qrcode": "github:pelikhan/pxt-qrcode#v0.0.4"

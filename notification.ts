@@ -11,12 +11,7 @@ namespace badge {
         scene.backgroundImage().printCenter(badge.notificationText, 30, 7, image.font8);
         badge.notificationText = undefined;
         scene.cameraShake()
-
-        const strip = badge.lightStrip;
-        if (strip) {
-            strip.setAll(0xff0000);
-            strip.startBrightnessTransition(24, 0, 400, 1, false, new light.EasingBrightnessTransition(easing.outQuad, easing.inOutQuad));    
-        }
+        controller.startLightPulse(0xff0000, 400);
     }
 
     storyboard.registerScene("notification", notification);

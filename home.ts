@@ -419,11 +419,7 @@ namespace home {
         stepSprite.image.print(getStepString(steps), 0, 0, 1, stepFont);
 
         effects.confetti.startScreenEffect(500)
-        const strip = badge.lightStrip;
-        if (strip) {
-            strip.setAll(0xff00ff);
-            strip.startBrightnessTransition(24, 0, 400, 1, false, new light.EasingBrightnessTransition(easing.outQuad, easing.inOutQuad));
-        }
+        controller.startLightPulse(0xff00ff, 400);
         stepEffect(500, sprite, name, ts);
 
         /*
