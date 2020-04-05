@@ -1,3 +1,6 @@
+---
+---
+
 # MakeCode Badge
 
 A framework to create electronic badges in MakeCode Arcade
@@ -46,3 +49,5 @@ Resources:
 - [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)
 - [Microsoft Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
 - Contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with questions or concerns
+
+<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("https://arcade.makecode.com/", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>

@@ -2,6 +2,7 @@
     "name": "badge",
     "version": "0.0.5",
     "description": "A framework to create electronic badges in MakeCode Arcade",
+    "license": "MIT",
     "dependencies": {
         "device": "*",
         "palette": "*",
@@ -9,7 +10,7 @@
         "controller": "*",
         "color": "*",
         "power": "*",
-        "qrcode": "github:pelikhan/pxt-qrcode#v0.0.4"
+        "qrcode": "github:pelikhan/pxt-qrcode#v0.0.6"
     },
     "files": [
         "README.md",
@@ -24,7 +25,8 @@
         "test.ts"
     ],
     "public": true,
-    "license": "MIT",
-    "preferredEditor": "tsprj",
-    "installedVersion": "workspace:2e6496b4-688e-4eb1-9417-596218386937"
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
 }
