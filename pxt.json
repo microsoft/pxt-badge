@@ -10,7 +10,8 @@
         "controller": "*",
         "color": "*",
         "power": "*",
-        "qrcode": "github:pelikhan/pxt-qrcode#v0.0.6"
+        "qrcode": "github:pelikhan/pxt-qrcode#v0.0.6",
+        "arcade-dom": "github:microsoft/arcade-dom#v0.0.2"
     },
     "files": [
         "README.md",
